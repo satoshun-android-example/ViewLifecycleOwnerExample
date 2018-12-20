@@ -1,1 +1,1 @@
-# Activity-Ktx + Dagger Example
+# LiveData#observe with Fragment-Ktx Example
