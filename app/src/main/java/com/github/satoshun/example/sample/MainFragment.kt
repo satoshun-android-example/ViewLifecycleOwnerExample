@@ -27,21 +27,21 @@ class MainFragment : Fragment() {
       Log.d("main1", "$it $this")
     })
 
-//    viewModel.counter.observe(this, Observer {
-//      Log.e("main2", "$it $this")
+    viewModel.counter.observe(this, Observer {
+      Log.e("main2", "$it $this")
+    })
+
+//    viewModel.counter.observe(this, object : Observer<Int> {
+//      override fun onChanged(t: Int) {
+//        Log.e("main33", "$t")
+//      }
 //    })
 
-    viewModel.counter.observe(this, object : Observer<Int> {
-      override fun onChanged(t: Int) {
-        Log.e("main33", "$t")
-      }
-    })
+//    viewModel.counter.observe(this, Observer {
+//      Log.e("main3", "$it")
+//    })
 
-    viewModel.counter.observe(this, Observer {
-      Log.e("main3", "$it")
-    })
-
-    // get size
+    // get observers size
     val field = LiveData::class.java.getDeclaredField("mObservers")
     field.isAccessible = true
     val v = field.get(viewModel.counter)

@@ -28,6 +28,8 @@ class MainActivity : BaseActivity() {
 
     val fragment = supportFragmentManager.findFragmentByTag("main1")!!
     launch {
+      // no memory leak
+      // cuz will be call Fragment#onDestroy
 //      val fragment2 = MainFragment()
 //      while (true) {
 //        delay(3000)
@@ -41,6 +43,8 @@ class MainActivity : BaseActivity() {
 //        }
 //      }
 
+      // memory leak!!
+      // cuz will not call Fragment#onDestroy
       while (true) {
         delay(3000)
         supportFragmentManager.commitNow {
@@ -49,6 +53,8 @@ class MainActivity : BaseActivity() {
         }
       }
 
+      // no memory leak
+      // cuz will be call Fragment#onDestroy
 //      val fragment2 = MainFragment()
 //      while (true) {
 //        delay(3000)
@@ -64,9 +70,11 @@ class MainActivity : BaseActivity() {
 //        }
 //      }
 
+      // no memory leak
+      // cuz Fragment#onActivityCreated method is called only once
 //      while (true) {
 //        delay(3000)
-//        supportFragmentManager.commit {
+//        supportFragmentManager.commitNow {
 //          if (fragment.isHidden) show(fragment)
 //          else hide(fragment)
 //        }
