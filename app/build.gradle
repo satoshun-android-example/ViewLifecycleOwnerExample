@@ -1,6 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
   compileSdkVersion Vers.compile_sdk
@@ -52,6 +51,7 @@ dependencies {
   implementation Libs.kotlin
   implementation Libs.appcompat
   implementation Libs.constraintlayout
+  implementation Libs.recyclerview
   implementation Libs.ktx
 
   implementation Libs.coroutine
@@ -59,13 +59,4 @@ dependencies {
 
   implementation Libs.activityx
   implementation Libs.fragmentx
-
-  implementation Libs.dagger
-  kapt Libs.dagger_processor
-  implementation Libs.dagger_android
-//  implementation Libs.dagger_android_support
-  kapt Libs.dagger_android_processor
-
-  implementation Libs.fragmentx
-  implementation Libs.activityx
 }
